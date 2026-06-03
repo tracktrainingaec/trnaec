@@ -561,9 +561,15 @@
   }
 
   /* ── REALTIME ────────────────────────────────────────────── */
-  db.channel('votes_realtime')
-    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'project_name_votes' }, () => updateResults())
-    .subscribe();
+  try {
+    db.channel('votes_realtime')
+      .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'project_name_votes' }, () => updateResults())
+      .subscribe(status => {
+        if (status === 'SUBSCRIBED') console.log('Realtime ativo');
+      });
+  } catch (e) {
+    console.warn('Realtime indisponível — votação funciona normalmente, sem atualização em tempo real.', e);
+  }
 
   /* ── TOAST ───────────────────────────────────────────────── */
   let toastTimer = null;
