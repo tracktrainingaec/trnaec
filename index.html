@@ -11,16 +11,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy-deep: #0a1628;
-      --navy-mid:  #0f2044;
-      --gold:      #f59e0b;
-      --gold-dim:  rgba(245,158,11,0.18);
-      --cyan:      #0ea5e9;
-      --cyan-dim:  rgba(14,165,233,0.18);
-      --glass-bg:  rgba(255,255,255,0.05);
-      --glass-brd: rgba(255,255,255,0.10);
-      --text-main: #e2e8f0;
-      --text-muted:#94a3b8;
+      --navy-deep:   #0a1628;
+      --navy-mid:    #0f2044;
+      --gold:        #f59e0b;
+      --gold-dim:    rgba(245,158,11,0.18);
+      --cyan:        #0ea5e9;
+      --cyan-dim:    rgba(14,165,233,0.18);
+      --violet:      #a78bfa;
+      --violet-dim:  rgba(167,139,250,0.18);
+      --emerald:     #34d399;
+      --emerald-dim: rgba(52,211,153,0.18);
+      --glass-bg:    rgba(255,255,255,0.05);
+      --glass-brd:   rgba(255,255,255,0.10);
+      --text-main:   #e2e8f0;
+      --text-muted:  #94a3b8;
     }
 
     html { scroll-behavior: smooth; }
@@ -35,62 +39,28 @@
     }
 
     /* ── STARS ────────────────────────────────────────────── */
-    #stars-container {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-    }
-    .star {
-      position: absolute;
-      border-radius: 50%;
-      background: #fff;
-      opacity: 0;
-      animation: twinkle var(--dur) var(--delay) infinite ease-in-out;
-    }
+    #stars-container { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+    .star { position: absolute; border-radius: 50%; background: #fff; opacity: 0; animation: twinkle var(--dur) var(--delay) infinite ease-in-out; }
     @keyframes twinkle {
       0%, 100% { opacity: 0; transform: scale(0.6); }
       50%       { opacity: var(--max-op); transform: scale(1); }
     }
 
     /* ── LAYOUT ───────────────────────────────────────────── */
-    .page-wrapper {
-      position: relative;
-      z-index: 1;
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 48px 24px 64px;
-    }
+    .page-wrapper { position: relative; z-index: 1; max-width: 1200px; margin: 0 auto; padding: 48px 24px 64px; }
 
     /* ── HEADER ───────────────────────────────────────────── */
-    header {
-      text-align: center;
-      margin-bottom: 56px;
-    }
+    header { text-align: center; margin-bottom: 56px; }
     .area-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid var(--glass-brd);
-      border-radius: 100px;
-      padding: 6px 18px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin-bottom: 24px;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.07); border: 1px solid var(--glass-brd);
+      border-radius: 100px; padding: 6px 18px;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--text-muted); margin-bottom: 24px;
     }
     .area-badge::before {
-      content: '';
-      display: inline-block;
-      width: 8px; height: 8px;
-      border-radius: 50%;
-      background: var(--gold);
-      box-shadow: 0 0 8px var(--gold);
+      content: ''; display: inline-block; width: 8px; height: 8px;
+      border-radius: 50%; background: var(--gold); box-shadow: 0 0 8px var(--gold);
       animation: pulse-dot 2s infinite;
     }
     @keyframes pulse-dot {
@@ -99,181 +69,140 @@
     }
     header h1 {
       font-family: 'Montserrat', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.15;
+      font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800;
+      letter-spacing: -0.02em; line-height: 1.15;
       background: linear-gradient(135deg, #fff 30%, #94a3b8 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
       margin-bottom: 12px;
     }
-    header p.subtitle {
-      font-size: 1rem;
-      color: var(--text-muted);
-      max-width: 520px;
-      margin: 0 auto;
-      line-height: 1.65;
-    }
-
-    /* live indicator */
+    header p.subtitle { font-size: 1rem; color: var(--text-muted); max-width: 560px; margin: 0 auto; line-height: 1.65; }
     .live-indicator {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(34,197,94,0.12);
-      border: 1px solid rgba(34,197,94,0.25);
-      border-radius: 100px;
-      padding: 4px 12px;
-      font-size: 0.72rem;
-      font-weight: 600;
-      color: #4ade80;
-      letter-spacing: 0.08em;
-      margin-top: 14px;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,197,94,0.12); border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 100px; padding: 4px 12px;
+      font-size: 0.72rem; font-weight: 600; color: #4ade80; letter-spacing: 0.08em; margin-top: 14px;
     }
-    .live-dot {
-      width: 7px; height: 7px;
-      border-radius: 50%;
-      background: #4ade80;
-      animation: pulse-dot 1.5s infinite;
+    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; animation: pulse-dot 1.5s infinite; }
+
+    /* ── GROUP LABELS ─────────────────────────────────────── */
+    .group-label {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--text-muted); padding: 4px 0 12px; opacity: 0.7;
     }
 
     /* ── CARDS GRID ───────────────────────────────────────── */
     .cards-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 28px;
+      gap: 24px;
       margin-bottom: 60px;
     }
-    @media (max-width: 767px) {
-      .cards-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 767px) { .cards-grid { grid-template-columns: 1fr; } }
 
     /* ── CARD ─────────────────────────────────────────────── */
     .card {
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-brd);
-      border-radius: 20px;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
+      background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-brd); border-radius: 20px;
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; position: relative;
     }
     .card:hover { transform: translateY(-4px); }
 
     .card-top-line { height: 4px; width: 100%; }
-    .card.farol .card-top-line { background: linear-gradient(90deg, var(--gold), #fcd34d, var(--gold)); }
-    .card.rota  .card-top-line { background: linear-gradient(90deg, var(--cyan), #7dd3fc, var(--cyan)); }
+    .card.farol-aec  .card-top-line { background: linear-gradient(90deg, var(--gold),    #fcd34d,  var(--gold));    }
+    .card.rota-aec   .card-top-line { background: linear-gradient(90deg, var(--cyan),    #7dd3fc,  var(--cyan));    }
+    .card.farol-rh   .card-top-line { background: linear-gradient(90deg, var(--violet),  #c4b5fd,  var(--violet));  }
+    .card.rota-rh    .card-top-line { background: linear-gradient(90deg, var(--emerald), #6ee7b7,  var(--emerald)); }
 
-    .card-body {
-      padding: 32px 28px 28px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
+    .card.farol-aec:hover  { box-shadow: 0 20px 50px rgba(245,158,11,0.15);  }
+    .card.rota-aec:hover   { box-shadow: 0 20px 50px rgba(14,165,233,0.15);  }
+    .card.farol-rh:hover   { box-shadow: 0 20px 50px rgba(167,139,250,0.15); }
+    .card.rota-rh:hover    { box-shadow: 0 20px 50px rgba(52,211,153,0.15);  }
 
-    .card-icon {
-      font-size: 3rem;
-      line-height: 1;
-      width: 72px; height: 72px;
-      display: flex; align-items: center; justify-content: center;
-      border-radius: 18px;
-    }
-    .card.farol .card-icon { background: var(--gold-dim); animation: glow-gold 2.8s ease-in-out infinite; }
-    .card.rota  .card-icon { background: var(--cyan-dim); animation: glow-cyan 2.8s ease-in-out infinite; }
-    @keyframes glow-gold {
-      0%,100% { box-shadow: 0 0 12px rgba(245,158,11,0.4); }
-      50%      { box-shadow: 0 0 28px rgba(245,158,11,0.8), 0 0 48px rgba(245,158,11,0.3); }
-    }
-    @keyframes glow-cyan {
-      0%,100% { box-shadow: 0 0 12px rgba(14,165,233,0.4); }
-      50%      { box-shadow: 0 0 28px rgba(14,165,233,0.8), 0 0 48px rgba(14,165,233,0.3); }
-    }
+    .card-body { padding: 28px 24px 24px; flex: 1; display: flex; flex-direction: column; gap: 16px; }
 
-    .card-title-block { display: flex; flex-direction: column; gap: 6px; }
-    .card-name { font-family: 'Montserrat', sans-serif; font-size: 1.75rem; font-weight: 800; letter-spacing: -0.01em; }
-    .card.farol .card-name { color: var(--gold); }
-    .card.rota  .card-name { color: var(--cyan); }
+    .card-icon { font-size: 2.6rem; line-height: 1; width: 64px; height: 64px; display: flex; align-items: center; justify-content: center; border-radius: 16px; }
+    .card.farol-aec  .card-icon { background: var(--gold-dim);    animation: glow-gold    2.8s ease-in-out infinite; }
+    .card.rota-aec   .card-icon { background: var(--cyan-dim);    animation: glow-cyan    2.8s ease-in-out infinite; }
+    .card.farol-rh   .card-icon { background: var(--violet-dim);  animation: glow-violet  2.8s ease-in-out infinite; }
+    .card.rota-rh    .card-icon { background: var(--emerald-dim); animation: glow-emerald 2.8s ease-in-out infinite; }
+    @keyframes glow-gold    { 0%,100%{box-shadow:0 0 12px rgba(245,158,11,0.4)} 50%{box-shadow:0 0 28px rgba(245,158,11,0.8),0 0 48px rgba(245,158,11,0.3)} }
+    @keyframes glow-cyan    { 0%,100%{box-shadow:0 0 12px rgba(14,165,233,0.4)} 50%{box-shadow:0 0 28px rgba(14,165,233,0.8),0 0 48px rgba(14,165,233,0.3)} }
+    @keyframes glow-violet  { 0%,100%{box-shadow:0 0 12px rgba(167,139,250,0.4)} 50%{box-shadow:0 0 28px rgba(167,139,250,0.8),0 0 48px rgba(167,139,250,0.3)} }
+    @keyframes glow-emerald { 0%,100%{box-shadow:0 0 12px rgba(52,211,153,0.4)} 50%{box-shadow:0 0 28px rgba(52,211,153,0.8),0 0 48px rgba(52,211,153,0.3)} }
 
-    .card-sigla   { font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; color: var(--text-muted); text-transform: uppercase; }
-    .card-tagline { font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; font-style: italic; color: var(--text-main); opacity: 0.9; }
-    .card-desc    { font-size: 0.875rem; color: var(--text-muted); line-height: 1.7; }
+    .card-title-block { display: flex; flex-direction: column; gap: 5px; }
+    .card-name { font-family: 'Montserrat', sans-serif; font-size: 1.6rem; font-weight: 800; letter-spacing: -0.01em; }
+    .card.farol-aec  .card-name { color: var(--gold);    }
+    .card.rota-aec   .card-name { color: var(--cyan);    }
+    .card.farol-rh   .card-name { color: var(--violet);  }
+    .card.rota-rh    .card-name { color: var(--emerald); }
+
+    .card-sigla   { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.06em; color: var(--text-muted); text-transform: uppercase; }
+    .card-tagline { font-family: 'Montserrat', sans-serif; font-size: 0.88rem; font-weight: 700; font-style: italic; color: var(--text-main); opacity: 0.9; }
+    .card-desc    { font-size: 0.84rem; color: var(--text-muted); line-height: 1.65; }
     .card-divider { height: 1px; background: var(--glass-brd); border: none; margin: 0; }
 
-    .features-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .features-list li { font-size: 0.845rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
-    .feat-icon { flex-shrink: 0; font-size: 1rem; margin-top: 1px; }
+    .features-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+    .features-list li { font-size: 0.82rem; color: var(--text-muted); display: flex; align-items: flex-start; gap: 9px; line-height: 1.5; }
+    .feat-icon { flex-shrink: 0; font-size: 0.95rem; margin-top: 1px; }
 
-    .key-message { border-radius: 12px; padding: 14px 16px; font-size: 0.825rem; font-style: italic; line-height: 1.6; color: var(--text-main); }
-    .card.farol .key-message { background: var(--gold-dim); border-left: 3px solid var(--gold); }
-    .card.rota  .key-message { background: var(--cyan-dim); border-left: 3px solid var(--cyan); }
+    .key-message { border-radius: 10px; padding: 12px 14px; font-size: 0.8rem; font-style: italic; line-height: 1.6; color: var(--text-main); }
+    .card.farol-aec  .key-message { background: var(--gold-dim);    border-left: 3px solid var(--gold);    }
+    .card.rota-aec   .key-message { background: var(--cyan-dim);    border-left: 3px solid var(--cyan);    }
+    .card.farol-rh   .key-message { background: var(--violet-dim);  border-left: 3px solid var(--violet);  }
+    .card.rota-rh    .key-message { background: var(--emerald-dim); border-left: 3px solid var(--emerald); }
 
     .btn-vote {
-      width: 100%;
-      padding: 14px 24px;
-      border: none;
-      border-radius: 12px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
-      margin-top: auto;
+      width: 100%; padding: 13px 20px; border: none; border-radius: 12px;
+      font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.04em;
+      cursor: pointer; transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s; margin-top: auto;
     }
-    .card.farol .btn-vote { background: linear-gradient(135deg, var(--gold), #d97706); color: #1a0f00; box-shadow: 0 4px 20px rgba(245,158,11,0.35); }
-    .card.farol .btn-vote:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(245,158,11,0.55); }
-    .card.rota  .btn-vote { background: linear-gradient(135deg, var(--cyan), #0284c7); color: #001a2e; box-shadow: 0 4px 20px rgba(14,165,233,0.35); }
-    .card.rota  .btn-vote:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(14,165,233,0.55); }
+    .card.farol-aec  .btn-vote { background: linear-gradient(135deg,var(--gold),   #d97706); color:#1a0f00; box-shadow:0 4px 20px rgba(245,158,11,0.35); }
+    .card.rota-aec   .btn-vote { background: linear-gradient(135deg,var(--cyan),   #0284c7); color:#001a2e; box-shadow:0 4px 20px rgba(14,165,233,0.35); }
+    .card.farol-rh   .btn-vote { background: linear-gradient(135deg,var(--violet), #7c3aed); color:#fff;    box-shadow:0 4px 20px rgba(167,139,250,0.35); }
+    .card.rota-rh    .btn-vote { background: linear-gradient(135deg,var(--emerald),#059669); color:#001a10; box-shadow:0 4px 20px rgba(52,211,153,0.35); }
+    .card.farol-aec  .btn-vote:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 28px rgba(245,158,11,0.55); }
+    .card.rota-aec   .btn-vote:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 28px rgba(14,165,233,0.55); }
+    .card.farol-rh   .btn-vote:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 28px rgba(167,139,250,0.55); }
+    .card.rota-rh    .btn-vote:hover:not(:disabled) { transform:translateY(-2px); box-shadow:0 8px 28px rgba(52,211,153,0.55); }
     .btn-vote:disabled { opacity: 0.45; cursor: not-allowed; transform: none !important; }
 
     .voted-badge {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      width: 100%;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-family: 'Montserrat', sans-serif;
-      font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
+      display: none; align-items: center; justify-content: center; gap: 8px;
+      width: 100%; padding: 11px 20px; border-radius: 12px;
+      font-family: 'Montserrat', sans-serif; font-size: 0.88rem; font-weight: 700; letter-spacing: 0.04em;
       margin-top: auto;
     }
-    .card.farol .voted-badge { background: var(--gold-dim); color: var(--gold); border: 1px solid rgba(245,158,11,0.35); }
-    .card.rota  .voted-badge { background: var(--cyan-dim); color: var(--cyan); border: 1px solid rgba(14,165,233,0.35); }
+    .card.farol-aec  .voted-badge { background:var(--gold-dim);    color:var(--gold);    border:1px solid rgba(245,158,11,0.35);  }
+    .card.rota-aec   .voted-badge { background:var(--cyan-dim);    color:var(--cyan);    border:1px solid rgba(14,165,233,0.35);  }
+    .card.farol-rh   .voted-badge { background:var(--violet-dim);  color:var(--violet);  border:1px solid rgba(167,139,250,0.35); }
+    .card.rota-rh    .voted-badge { background:var(--emerald-dim); color:var(--emerald); border:1px solid rgba(52,211,153,0.35);  }
     .voted-badge.visible { display: flex; }
 
     /* ── RESULTS ──────────────────────────────────────────── */
     .results-section {
-      background: var(--glass-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid var(--glass-brd);
-      border-radius: 20px;
-      padding: 36px 32px;
-      margin-bottom: 48px;
+      background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-brd); border-radius: 20px;
+      padding: 32px 28px; margin-bottom: 48px;
     }
-    .results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; flex-wrap: wrap; gap: 12px; }
-    .results-title { font-family: 'Montserrat', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--text-main); }
+    .results-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; flex-wrap: wrap; gap: 12px; }
+    .results-title { font-family: 'Montserrat', sans-serif; font-size: 1.2rem; font-weight: 700; color: var(--text-main); }
     .total-votes-badge { background: rgba(255,255,255,0.07); border: 1px solid var(--glass-brd); border-radius: 100px; padding: 5px 14px; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); }
 
-    .progress-item { margin-bottom: 22px; }
+    .progress-item { margin-bottom: 18px; }
     .progress-item:last-child { margin-bottom: 0; }
-    .progress-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
-    .progress-name { display: flex; align-items: center; gap: 10px; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; font-weight: 700; }
-    .prog-icon { font-size: 1.1rem; }
-    .progress-stats { font-size: 0.82rem; color: var(--text-muted); font-weight: 500; }
-    .progress-track { width: 100%; height: 10px; background: rgba(255,255,255,0.07); border-radius: 100px; overflow: hidden; }
+    .progress-label { display: flex; align-items: center; justify-content: space-between; margin-bottom: 7px; }
+    .progress-name { display: flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; }
+    .prog-icon { font-size: 1rem; }
+    .progress-stats { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; }
+    .progress-track { width: 100%; height: 9px; background: rgba(255,255,255,0.07); border-radius: 100px; overflow: hidden; }
     .progress-bar { height: 100%; border-radius: 100px; width: 0%; transition: width 0.9s cubic-bezier(0.4, 0, 0.2, 1); }
-    .progress-bar.farol { background: linear-gradient(90deg, var(--gold), #fcd34d); }
-    .progress-bar.rota  { background: linear-gradient(90deg, var(--cyan), #7dd3fc); }
+    .progress-bar.farol-aec  { background: linear-gradient(90deg, var(--gold),    #fcd34d); }
+    .progress-bar.rota-aec   { background: linear-gradient(90deg, var(--cyan),    #7dd3fc); }
+    .progress-bar.farol-rh   { background: linear-gradient(90deg, var(--violet),  #c4b5fd); }
+    .progress-bar.rota-rh    { background: linear-gradient(90deg, var(--emerald), #6ee7b7); }
 
     /* ── FOOTER ───────────────────────────────────────────── */
     footer { text-align: center; font-size: 0.8rem; color: var(--text-muted); padding-top: 8px; opacity: 0.7; }
@@ -281,11 +210,9 @@
     /* ── MODAL ────────────────────────────────────────────── */
     .modal-overlay {
       position: fixed; inset: 0; z-index: 100;
-      background: rgba(5, 10, 25, 0.82);
-      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      background: rgba(5,10,25,0.82); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
       display: flex; align-items: center; justify-content: center; padding: 24px;
-      opacity: 0; pointer-events: none;
-      transition: opacity 0.25s ease;
+      opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
     }
     .modal-overlay.active { opacity: 1; pointer-events: all; }
     .modal-box {
@@ -294,26 +221,37 @@
       transform: scale(0.92); transition: transform 0.25s ease;
     }
     .modal-overlay.active .modal-box { transform: scale(1); }
-    .modal-icon { font-size: 3.5rem; margin-bottom: 16px; display: block; }
+    .modal-icon  { font-size: 3.5rem; margin-bottom: 16px; display: block; }
     .modal-title { font-family: 'Montserrat', sans-serif; font-size: 1.35rem; font-weight: 800; margin-bottom: 10px; color: #fff; }
-    .modal-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 28px; }
+    .modal-desc  { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 28px; }
     .modal-choice { font-family: 'Montserrat', sans-serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
-    .modal-choice.farol { color: var(--gold); }
-    .modal-choice.rota  { color: var(--cyan); }
+    .modal-choice.farol-aec  { color: var(--gold);    }
+    .modal-choice.rota-aec   { color: var(--cyan);    }
+    .modal-choice.farol-rh   { color: var(--violet);  }
+    .modal-choice.rota-rh    { color: var(--emerald); }
     .modal-buttons { display: flex; gap: 12px; justify-content: center; }
-    .btn-cancel { flex: 1; max-width: 160px; padding: 12px 20px; border-radius: 10px; border: 1px solid var(--glass-brd); background: rgba(255,255,255,0.05); color: var(--text-muted); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.2s, color 0.2s; }
+    .btn-cancel {
+      flex: 1; max-width: 160px; padding: 12px 20px; border-radius: 10px;
+      border: 1px solid var(--glass-brd); background: rgba(255,255,255,0.05);
+      color: var(--text-muted); font-family: 'Inter', sans-serif; font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; transition: background 0.2s, color 0.2s;
+    }
     .btn-cancel:hover { background: rgba(255,255,255,0.1); color: var(--text-main); }
-    .btn-confirm { flex: 1; max-width: 160px; padding: 12px 20px; border-radius: 10px; border: none; font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s; }
-    .btn-confirm.farol { background: linear-gradient(135deg, var(--gold), #d97706); color: #1a0f00; box-shadow: 0 4px 16px rgba(245,158,11,0.4); }
-    .btn-confirm.farol:hover { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(245,158,11,0.6); }
-    .btn-confirm.rota  { background: linear-gradient(135deg, var(--cyan), #0284c7); color: #001a2e; box-shadow: 0 4px 16px rgba(14,165,233,0.4); }
-    .btn-confirm.rota:hover  { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(14,165,233,0.6); }
+    .btn-confirm {
+      flex: 1; max-width: 160px; padding: 12px 20px; border-radius: 10px; border: none;
+      font-family: 'Montserrat', sans-serif; font-size: 0.9rem; font-weight: 700;
+      cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-confirm.farol-aec  { background:linear-gradient(135deg,var(--gold),  #d97706); color:#1a0f00; box-shadow:0 4px 16px rgba(245,158,11,0.4); }
+    .btn-confirm.rota-aec   { background:linear-gradient(135deg,var(--cyan),  #0284c7); color:#001a2e; box-shadow:0 4px 16px rgba(14,165,233,0.4); }
+    .btn-confirm.farol-rh   { background:linear-gradient(135deg,var(--violet),#7c3aed); color:#fff;    box-shadow:0 4px 16px rgba(167,139,250,0.4); }
+    .btn-confirm.rota-rh    { background:linear-gradient(135deg,var(--emerald),#059669);color:#001a10; box-shadow:0 4px 16px rgba(52,211,153,0.4);  }
+    .btn-confirm:hover { transform: translateY(-1px); }
 
     /* ── TOAST ────────────────────────────────────────────── */
     #toast {
       position: fixed; bottom: 32px; left: 50%;
-      transform: translateX(-50%) translateY(80px);
-      z-index: 200;
+      transform: translateX(-50%) translateY(80px); z-index: 200;
       background: #1a2e4a; border: 1px solid var(--glass-brd); border-radius: 14px;
       padding: 14px 24px; display: flex; align-items: center; gap: 12px;
       font-size: 0.9rem; font-weight: 500; color: var(--text-main);
@@ -323,21 +261,17 @@
     }
     #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
     #toast .toast-icon { font-size: 1.4rem; }
-
-    /* loading spinner on button */
-    .btn-vote.loading { opacity: 0.6; cursor: wait; }
   </style>
 </head>
 <body>
 
-<!-- Stars -->
 <div id="stars-container"></div>
 
 <!-- Modal -->
-<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true">
   <div class="modal-box">
     <span class="modal-icon" id="modal-icon">🗳️</span>
-    <div class="modal-title" id="modal-title">Confirmar voto</div>
+    <div class="modal-title">Confirmar voto</div>
     <p class="modal-desc">Você tem certeza? Cada pessoa pode votar apenas uma vez.</p>
     <div class="modal-choice" id="modal-choice-label"></div>
     <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:24px;">Seu voto será registrado permanentemente.</p>
@@ -351,10 +285,9 @@
 <!-- Toast -->
 <div id="toast">
   <span class="toast-icon" id="toast-icon">✅</span>
-  <span id="toast-message">Voto registrado com sucesso!</span>
+  <span id="toast-message">Voto registrado!</span>
 </div>
 
-<!-- Page -->
 <div class="page-wrapper">
 
   <header>
@@ -369,8 +302,8 @@
 
   <section class="cards-grid" aria-label="Opções de votação">
 
-    <!-- FAROL -->
-    <div class="card farol" id="card-farol">
+    <!-- FAROL AeC -->
+    <div class="card farol-aec" id="card-farol-aec">
       <div class="card-top-line"></div>
       <div class="card-body">
         <div class="card-icon" aria-hidden="true">🗼</div>
@@ -389,13 +322,38 @@
           <li><span class="feat-icon">🤝</span><span>Conexão entre Treinamento, R&S e Medicina</span></li>
         </ul>
         <div class="key-message">"Olhar para onde estamos, entender para onde vamos e seguir juntos na mesma direção."</div>
-        <button class="btn-vote" id="btn-vote-farol" onclick="openModal('farol')">Votar em FAROL AeC</button>
-        <div class="voted-badge" id="badge-farol">✓ Você votou aqui</div>
+        <button class="btn-vote" id="btn-farol-aec" onclick="openModal('farol-aec')">Votar em FAROL AeC</button>
+        <div class="voted-badge" id="badge-farol-aec">✓ Você votou aqui</div>
       </div>
     </div>
 
-    <!-- ROTA -->
-    <div class="card rota" id="card-rota">
+    <!-- FAROL RH -->
+    <div class="card farol-rh" id="card-farol-rh">
+      <div class="card-top-line"></div>
+      <div class="card-body">
+        <div class="card-icon" aria-hidden="true">💡</div>
+        <div class="card-title-block">
+          <div class="card-name">FAROL RH</div>
+          <div class="card-sigla">Feedback · Alinhamento · Resultados · Orientação · Liderança</div>
+          <div class="card-tagline">"Mais do que uma reunião. Um direcionador."</div>
+        </div>
+        <p class="card-desc">O FAROL RH representa o momento em que a equipe de RH para, analisa o cenário atual e ilumina os próximos caminhos da jornada. Assim como um farol orienta embarcações em meio aos desafios, este encontro traz clareza sobre nossos resultados e garante que todos estejam conectados à mesma direção.</p>
+        <hr class="card-divider" />
+        <ul class="features-list">
+          <li><span class="feat-icon">💡</span><span>Clareza sobre os resultados alcançados</span></li>
+          <li><span class="feat-icon">🎯</span><span>Direcionamento estratégico para os próximos ciclos</span></li>
+          <li><span class="feat-icon">🚀</span><span>Visibilidade dos projetos e iniciativas em andamento</span></li>
+          <li><span class="feat-icon">📈</span><span>Evolução contínua de pessoas, equipes e processos</span></li>
+          <li><span class="feat-icon">🤝</span><span>Passa a ideia de direção, clareza, alinhamento e desenvolvimento</span></li>
+        </ul>
+        <div class="key-message">"Olhar para onde estamos, entender para onde vamos e seguir juntos na mesma direção."</div>
+        <button class="btn-vote" id="btn-farol-rh" onclick="openModal('farol-rh')">Votar em FAROL RH</button>
+        <div class="voted-badge" id="badge-farol-rh">✓ Você votou aqui</div>
+      </div>
+    </div>
+
+    <!-- ROTA AeC -->
+    <div class="card rota-aec" id="card-rota-aec">
       <div class="card-top-line"></div>
       <div class="card-body">
         <div class="card-icon" aria-hidden="true">🗺️</div>
@@ -414,13 +372,39 @@
           <li><span class="feat-icon">🚀</span><span>Construção contínua do futuro da Área de Pessoas</span></li>
         </ul>
         <div class="key-message">"Toda grande conquista começa com uma rota bem definida e pessoas caminhando na mesma direção."</div>
-        <button class="btn-vote" id="btn-vote-rota" onclick="openModal('rota')">Votar em ROTA AeC</button>
-        <div class="voted-badge" id="badge-rota">✓ Você votou aqui</div>
+        <button class="btn-vote" id="btn-rota-aec" onclick="openModal('rota-aec')">Votar em ROTA AeC</button>
+        <div class="voted-badge" id="badge-rota-aec">✓ Você votou aqui</div>
+      </div>
+    </div>
+
+    <!-- ROTA RH -->
+    <div class="card rota-rh" id="card-rota-rh">
+      <div class="card-top-line"></div>
+      <div class="card-body">
+        <div class="card-icon" aria-hidden="true">🧭</div>
+        <div class="card-title-block">
+          <div class="card-name">ROTA RH</div>
+          <div class="card-sigla">Resultados · Orientação · Transformação · Ação</div>
+          <div class="card-tagline">"O caminho que construímos juntos."</div>
+        </div>
+        <p class="card-desc">O ROTA RH simboliza o encontro onde a equipe de RH avalia sua trajetória, celebra os avanços conquistados e define os próximos passos. A proposta é alinhar direção, prioridades e próximos destinos, garantindo que todos compreendam os desafios e objetivos que guiarão nossa caminhada.</p>
+        <hr class="card-divider" />
+        <ul class="features-list">
+          <li><span class="feat-icon">🧭</span><span>Definição clara dos próximos passos</span></li>
+          <li><span class="feat-icon">📊</span><span>Acompanhamento dos resultados e indicadores</span></li>
+          <li><span class="feat-icon">🎯</span><span>Alinhamento das prioridades da área</span></li>
+          <li><span class="feat-icon">🔄</span><span>Ajuste de percurso quando necessário</span></li>
+          <li><span class="feat-icon">🚀</span><span>Onde alinhamos direção, prioridades e próximos destinos</span></li>
+        </ul>
+        <div class="key-message">"Toda grande conquista começa com uma rota bem definida e pessoas caminhando na mesma direção."</div>
+        <button class="btn-vote" id="btn-rota-rh" onclick="openModal('rota-rh')">Votar em ROTA RH</button>
+        <div class="voted-badge" id="badge-rota-rh">✓ Você votou aqui</div>
       </div>
     </div>
 
   </section>
 
+  <!-- Results -->
   <section class="results-section" aria-label="Placar da votação">
     <div class="results-header">
       <div class="results-title">📊 Placar da Votação</div>
@@ -429,54 +413,51 @@
 
     <div class="progress-item">
       <div class="progress-label">
-        <div class="progress-name">
-          <span class="prog-icon">🗼</span>
-          <span style="color:var(--gold)">FAROL AeC</span>
-        </div>
-        <div class="progress-stats" id="stats-farol">— votos · —%</div>
+        <div class="progress-name"><span class="prog-icon">🗼</span><span style="color:var(--gold)">FAROL AeC</span></div>
+        <div class="progress-stats" id="stats-farol-aec">— votos · —%</div>
       </div>
-      <div class="progress-track">
-        <div class="progress-bar farol" id="bar-farol"></div>
-      </div>
+      <div class="progress-track"><div class="progress-bar farol-aec" id="bar-farol-aec"></div></div>
     </div>
 
     <div class="progress-item">
       <div class="progress-label">
-        <div class="progress-name">
-          <span class="prog-icon">🗺️</span>
-          <span style="color:var(--cyan)">ROTA AeC</span>
-        </div>
-        <div class="progress-stats" id="stats-rota">— votos · —%</div>
+        <div class="progress-name"><span class="prog-icon">💡</span><span style="color:var(--violet)">FAROL RH</span></div>
+        <div class="progress-stats" id="stats-farol-rh">— votos · —%</div>
       </div>
-      <div class="progress-track">
-        <div class="progress-bar rota" id="bar-rota"></div>
+      <div class="progress-track"><div class="progress-bar farol-rh" id="bar-farol-rh"></div></div>
+    </div>
+
+    <div class="progress-item">
+      <div class="progress-label">
+        <div class="progress-name"><span class="prog-icon">🗺️</span><span style="color:var(--cyan)">ROTA AeC</span></div>
+        <div class="progress-stats" id="stats-rota-aec">— votos · —%</div>
       </div>
+      <div class="progress-track"><div class="progress-bar rota-aec" id="bar-rota-aec"></div></div>
+    </div>
+
+    <div class="progress-item">
+      <div class="progress-label">
+        <div class="progress-name"><span class="prog-icon">🧭</span><span style="color:var(--emerald)">ROTA RH</span></div>
+        <div class="progress-stats" id="stats-rota-rh">— votos · —%</div>
+      </div>
+      <div class="progress-track"><div class="progress-bar rota-rh" id="bar-rota-rh"></div></div>
     </div>
   </section>
 
   <footer>Área de Pessoas AeC · 2025</footer>
-
 </div>
 
-<!-- Supabase SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
-
 <script>
   /* ── STARS ───────────────────────────────────────────────── */
-  (function createStars() {
-    const container = document.getElementById('stars-container');
+  (function() {
+    const c = document.getElementById('stars-container');
     for (let i = 0; i < 160; i++) {
-      const star = document.createElement('div');
-      star.className = 'star';
-      const size = Math.random() * 2.4 + 0.6;
-      star.style.cssText = `
-        width:${size}px; height:${size}px;
-        top:${Math.random()*100}%; left:${Math.random()*100}%;
-        --dur:${(Math.random()*4+2).toFixed(2)}s;
-        --delay:${(Math.random()*6).toFixed(2)}s;
-        --max-op:${(Math.random()*0.55+0.15).toFixed(2)};
-      `;
-      container.appendChild(star);
+      const s = document.createElement('div');
+      s.className = 'star';
+      const sz = Math.random() * 2.4 + 0.6;
+      s.style.cssText = `width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;--dur:${(Math.random()*4+2).toFixed(2)}s;--delay:${(Math.random()*6).toFixed(2)}s;--max-op:${(Math.random()*0.55+0.15).toFixed(2)};`;
+      c.appendChild(s);
     }
   })();
 
@@ -485,14 +466,16 @@
   const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im15ZmdmbnlodGhraWNvdXdjb3hzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ1NzA4MzksImV4cCI6MjA5MDE0NjgzOX0.Jq1QWV1x7Y9ckvJi2wB46KzOWCZ9sKCfN6MTJz0rrpo';
   const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
-  /* ── VOTER ID (identificador anônimo do browser) ─────────── */
+  const OPTIONS = ['farol-aec', 'farol-rh', 'rota-aec', 'rota-rh'];
+  const LABELS  = { 'farol-aec':'FAROL AeC','farol-rh':'FAROL RH','rota-aec':'ROTA AeC','rota-rh':'ROTA RH' };
+  const ICONS   = { 'farol-aec':'🗼','farol-rh':'💡','rota-aec':'🗺️','rota-rh':'🧭' };
+
+  /* ── VOTER ID ────────────────────────────────────────────── */
   const VOTER_KEY = 'aec_voter_id';
   function getVoterId() {
     let id = localStorage.getItem(VOTER_KEY);
     if (!id) {
-      id = (typeof crypto !== 'undefined' && crypto.randomUUID)
-        ? crypto.randomUUID()
-        : Math.random().toString(36).slice(2) + Date.now().toString(36);
+      id = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : Math.random().toString(36).slice(2) + Date.now().toString(36);
       localStorage.setItem(VOTER_KEY, id);
     }
     return id;
@@ -507,25 +490,21 @@
   const btnCancel  = document.getElementById('btn-cancel');
 
   function openModal(choice) {
-    if (document.getElementById('btn-vote-farol').disabled) return;
+    if (document.getElementById('btn-' + choice).disabled) return;
     pendingChoice = choice;
-    const isFarol = choice === 'farol';
-    modalIcon.textContent  = isFarol ? '🗼' : '🗺️';
-    modalLabel.textContent = isFarol ? 'FAROL AeC' : 'ROTA AeC';
+    modalIcon.textContent  = ICONS[choice];
+    modalLabel.textContent = LABELS[choice];
     modalLabel.className   = 'modal-choice ' + choice;
     btnConfirm.className   = 'btn-confirm ' + choice;
     overlay.classList.add('active');
     btnConfirm.focus();
   }
 
-  function closeModal() {
-    overlay.classList.remove('active');
-    pendingChoice = null;
-  }
+  function closeModal() { overlay.classList.remove('active'); pendingChoice = null; }
 
   btnCancel.addEventListener('click', closeModal);
-  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeModal(); });
-  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
+  overlay.addEventListener('click', e => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
   btnConfirm.addEventListener('click', async function() {
     if (!pendingChoice) return;
@@ -536,29 +515,18 @@
 
   /* ── VOTE ────────────────────────────────────────────────── */
   async function registerVote(choice) {
-    const voterId = getVoterId();
-
-    // Desabilita botões enquanto processa
-    const btnF = document.getElementById('btn-vote-farol');
-    const btnR = document.getElementById('btn-vote-rota');
-    btnF.disabled = true;
-    btnR.disabled = true;
+    OPTIONS.forEach(o => { document.getElementById('btn-' + o).disabled = true; });
 
     const { error } = await db
       .from('project_name_votes')
-      .insert({ option_name: choice, voter_id: voterId });
+      .insert({ option_name: choice, voter_id: getVoterId() });
 
     if (error) {
-      if (error.code === '23505') {
-        // Voto duplicado — já votou
-        showToast('dup');
-      } else {
-        console.error('Erro ao votar:', error.message);
+      if (error.code !== '23505') {
+        OPTIONS.forEach(o => { document.getElementById('btn-' + o).disabled = false; });
         showToast('err');
-        btnF.disabled = false;
-        btnR.disabled = false;
+        return;
       }
-      return;
     }
 
     applyVotedState(choice);
@@ -566,60 +534,45 @@
     showToast(choice);
   }
 
-  function applyVotedState(votedChoice) {
-    document.getElementById('btn-vote-farol').disabled = true;
-    document.getElementById('btn-vote-rota').disabled  = true;
-    document.getElementById(votedChoice === 'farol' ? 'badge-farol' : 'badge-rota')
-      .classList.add('visible');
+  function applyVotedState(voted) {
+    OPTIONS.forEach(o => { document.getElementById('btn-' + o).disabled = true; });
+    document.getElementById('badge-' + voted).classList.add('visible');
   }
 
   /* ── RESULTS ─────────────────────────────────────────────── */
   async function updateResults() {
-    const { data, error } = await db
-      .from('project_name_votes')
-      .select('option_name');
-
+    const { data, error } = await db.from('project_name_votes').select('option_name');
     if (error || !data) return;
 
-    const farol = data.filter(v => v.option_name === 'farol').length;
-    const rota  = data.filter(v => v.option_name === 'rota').length;
-    const total = farol + rota;
-    const pctF  = total > 0 ? Math.round((farol / total) * 100) : 0;
-    const pctR  = total > 0 ? Math.round((rota  / total) * 100) : 0;
+    const counts = {};
+    OPTIONS.forEach(o => counts[o] = 0);
+    data.forEach(v => { if (counts[v.option_name] !== undefined) counts[v.option_name]++; });
+    const total = data.length;
 
-    document.getElementById('bar-farol').style.width   = pctF + '%';
-    document.getElementById('bar-rota').style.width    = pctR + '%';
-    document.getElementById('stats-farol').textContent = `${farol} voto${farol !== 1 ? 's' : ''} · ${pctF}%`;
-    document.getElementById('stats-rota').textContent  = `${rota} voto${rota !== 1 ? 's' : ''} · ${pctR}%`;
+    OPTIONS.forEach(o => {
+      const n   = counts[o];
+      const pct = total > 0 ? Math.round((n / total) * 100) : 0;
+      document.getElementById('bar-'   + o).style.width  = pct + '%';
+      document.getElementById('stats-' + o).textContent  = `${n} voto${n !== 1 ? 's' : ''} · ${pct}%`;
+    });
+
     document.getElementById('total-votes-badge').textContent =
       total === 0 ? 'Nenhum voto ainda' : `${total} voto${total !== 1 ? 's' : ''} registrado${total !== 1 ? 's' : ''}`;
   }
 
   /* ── REALTIME ────────────────────────────────────────────── */
   db.channel('votes_realtime')
-    .on('postgres_changes', {
-      event: 'INSERT',
-      schema: 'public',
-      table: 'project_name_votes'
-    }, () => updateResults())
+    .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'project_name_votes' }, () => updateResults())
     .subscribe();
 
   /* ── TOAST ───────────────────────────────────────────────── */
   let toastTimer = null;
   function showToast(type) {
-    const toast    = document.getElementById('toast');
-    const toastIc  = document.getElementById('toast-icon');
-    const toastMsg = document.getElementById('toast-message');
-
-    const msgs = {
-      farol: ['🗼', 'Voto em FAROL AeC registrado com sucesso!'],
-      rota:  ['🗺️', 'Voto em ROTA AeC registrado com sucesso!'],
-      dup:   ['⚠️',  'Você já votou nesta sessão!'],
-      err:   ['❌',  'Erro ao registrar voto. Tente novamente.'],
-    };
-    const [icon, msg] = msgs[type] || msgs.err;
-    toastIc.textContent  = icon;
-    toastMsg.textContent = msg;
+    const toast = document.getElementById('toast');
+    document.getElementById('toast-icon').textContent    = type === 'err' ? '❌' : (ICONS[type] || '✅');
+    document.getElementById('toast-message').textContent = type === 'err'
+      ? 'Erro ao registrar voto. Tente novamente.'
+      : `Voto em ${LABELS[type]} registrado!`;
     toast.classList.add('show');
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => toast.classList.remove('show'), 4000);
@@ -627,17 +580,12 @@
 
   /* ── INIT ────────────────────────────────────────────────── */
   async function init() {
-    const voterId = getVoterId();
-
-    // Verifica se já votou (pelo voter_id no Supabase)
     const { data } = await db
       .from('project_name_votes')
       .select('option_name')
-      .eq('voter_id', voterId)
+      .eq('voter_id', getVoterId())
       .maybeSingle();
-
     if (data?.option_name) applyVotedState(data.option_name);
-
     await updateResults();
   }
 

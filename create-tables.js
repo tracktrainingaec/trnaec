@@ -12,7 +12,7 @@ async function run() {
   const sql = `
     CREATE TABLE IF NOT EXISTS project_name_votes (
       id          uuid        PRIMARY KEY DEFAULT gen_random_uuid(),
-      option_name text        NOT NULL CHECK (option_name IN ('farol', 'rota')),
+      option_name text        NOT NULL CHECK (option_name IN ('farol-aec', 'farol-rh', 'rota-aec', 'rota-rh')),
       voter_id    text        NOT NULL,
       created_at  timestamptz DEFAULT now(),
       UNIQUE (voter_id)
